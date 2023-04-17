@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;500;600;700&display=swap');
+
+:root {
+    --main_BG: hsl(217, 54%, 11%);
+    --card: hsl(216, 50%, 16%);
+    --line: hsl(215, 32%, 27%);
+    --white: hsl(0, 0%, 100%);
+    --softblue: hsl(215, 51%, 70%);
+    --cyan: hsl(178, 100%, 50%);
+    --gap: 23px;
+    --lightyfont: 400;
+    --weightyfont: 700;
+    --psize: 18px;
+    --titlesize: 24px;
+    --shadow: 64px;
+}
+
+*,
+::before,
+::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Kumbh Sans', sans-serif;
+    font-weight: var(--lightyfont);
+    color: var(--white);
+    background-color: var(--main_BG);
+
+    main {
+        a {
+            text-decoration: none;
+            color: var(--white);
+        }
+    }
+}
+
+.card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 450px;
+    height: 700px;
+    display: flex;
+    justify-content: center;
+    flex-flow: column;
+    gap: var(--gap);
+    background-color: var(--card);
+    padding: var(--gap);
+    font-size: var(--psize);
+    border-radius: 1em;
+    box-shadow: 0 0 var(--shadow) black;
+
+    header {
+        .header__img {
+            width: 100%;
+            border-radius: 1em;
+
+            &:hover {}
+        }
+    }
+
+    .container {
+        a.title {
+            font-size: var(--titlesize);
+            font-weight: var(--weightyfont);
+
+            &:hover {
+                color: var(--cyan);
+            }
+        }
+
+        p {
+            color: var(--softblue);
+            margin: var(--gap) 0;
+        }
+
+        .etherclock {
+            display: flex;
+            justify-content: space-between;
+
+            span {
+                display: flex;
+                flex-flow: row;
+                align-items: center;
+            }
+
+            span#left {
+                color: var(--cyan)
+            }
+
+            span#right {
+                color: var(--softblue)
+            }
+        }
+
+
+    }
+
+    hr {
+        height: 1px;
+        background-color: var(--line);
+        border: none;
+    }
+
+    footer {
+        display: flex;
+        align-items: center;
+        gap: 1em;
+
+        img {
+            width: 10%;
+        }
+
+        span {
+            color: var(--softblue);
+
+            a:hover {
+                color: var(--cyan);
+            }
+        }
+    }
+}
