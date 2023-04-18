@@ -7,11 +7,13 @@
   --softblue: hsl(215, 51%, 70%);
   --cyan: hsl(178, 100%, 50%);
   --gap: 23px;
+  --padding: 30px;
   --lightyfont: 400;
   --weightyfont: 700;
   --psize: 18px;
   --titlesize: 24px;
-  --shadow: 64px;
+  --smallShadow: 12px;
+  --bigShadow: 36px;
 }
 
 *,
@@ -27,6 +29,13 @@ body {
   font-weight: var(--lightyfont);
   color: var(--white);
   background-color: var(--main_BG);
+  height: 100vh;
+}
+body main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
 }
 body main a {
   text-decoration: none;
@@ -34,31 +43,55 @@ body main a {
 }
 
 .card {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 450px;
-  height: 700px;
+  width: 350px;
   display: flex;
   justify-content: center;
   flex-flow: column;
   gap: var(--gap);
   background-color: var(--card);
-  padding: var(--gap);
+  padding: var(--padding) var(--gap);
   font-size: var(--psize);
   border-radius: 1em;
-  box-shadow: 0 0 var(--shadow) black;
+  box-shadow: 0 0 var(--smallShadow) black;
+  transition: 0.4s;
 }
-.card header .header__img {
-  width: 100%;
-  border-radius: 1em;
+.card:hover {
+  transform: translateY(-2%);
+  box-shadow: 0 5px var(--bigShadow) black;
 }
-.card .container a.title {
+.card header.header__container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  max-height: 350px;
+}
+.card header.header__container:hover span {
+  opacity: 100%;
+}
+.card header.header__container img {
+  max-width: 100%;
+  filter: blur(0px);
+  cursor: pointer;
+}
+.card header.header__container span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0%;
+  transition: opacity 0.4s;
+}
+.card header.header__container span path:last-child {
+  fill: var(--cyan);
+}
+.card header.header__container:hover img {
+  filter: blur(2px);
+}
+.card .container .title {
   font-size: var(--titlesize);
   font-weight: var(--weightyfont);
 }
-.card .container a.title:hover {
+.card .container .title:hover {
   color: var(--cyan);
 }
 .card .container p {
@@ -92,6 +125,8 @@ body main a {
 }
 .card footer img {
   width: 10%;
+  border: white solid 1px;
+  border-radius: 50%;
 }
 .card footer span {
   color: var(--softblue);
